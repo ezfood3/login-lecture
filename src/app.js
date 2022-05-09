@@ -5,7 +5,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const home = require('../src/routes/home');
+const home = require('./routes/home');
 
 // 앱 셋팅
 app.set('views', path.join(__dirname, 'views'));
