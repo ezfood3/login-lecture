@@ -5,10 +5,10 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const home = require('./routes/home');
+const home = require('./src/routes/home');
 
 // 앱 셋팅
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.use('/', home); 
