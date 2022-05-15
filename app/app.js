@@ -16,7 +16,3 @@ app.use(express.static(`${__dirname}/src/public`));
 app.use('/', home); 
 
 module.exports = app;
-
-// app.listen(3000, () => {
-//   console.log('3000번에서 실행');
-// })
