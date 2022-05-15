@@ -1,14 +1,41 @@
 "use strict";
 
-const home = (req, res) => {
-  res.render('home/index');
+const users = {
+  id: ['qwe', 'rty', 'uio'],
+  psword: ['asd', 'fgh', 'jkl'],
 };
 
-const login = (req, res) => {
+const output = {
+  home : (req, res) => {
+  res.render('home/index');
+  },
+  login :(req, res) => {
   res.render('home/login');
-};
+  },
+}
+
+const process = {
+  login: (req, res) => {
+    const id = req.body.id;
+    const psword = req.body.psword;
+
+    if (users.id.includes(id)) {
+      const idx = users.id.indexOf(id);
+      if (users.psword[idx] === psword) {
+        return res.json({
+          success: true,
+        })
+      }
+    }
+
+    return res.json({
+      success: false,
+      msg: "로그인에 실패하셨습니다.",
+    })
+  }
+}
 
 module.exports = {
-  home,
-  login,
+  output,
+  process,
 }
